@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+}
+
+
+.right_container {
+  flex: 3.2;
+}
+
+.left_container {
+  flex: 0.8;
+}
+@media only screen and (max-width: 720px) {
+  .right_container {
+    display: none;
+  }
+}
