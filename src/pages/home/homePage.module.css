@@ -14,4 +14,8 @@
   .right_container {
     display: none;
   }
+
+  .left_container {
+  flex: 4;
+}
 }

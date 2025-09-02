@@ -21,32 +21,37 @@ export const CreateGroupPop = ({ openModal, setOpenModal }) => {
 
     const trimmedTitle = grpTitle.trim();
 
-    // Check empty or only spaces
+   
     if (!trimmedTitle) {
       setError("Group name cannot be empty or just spaces!");
       return;
     }
 
-    // Check max length
     if (trimmedTitle.length > 50) {
       setError("Group name must be less than 50 characters!");
       return;
     }
 
-    // Check if color selected
+    const alphaRegex = /^[A-Za-z ]+$/;
+    if (!alphaRegex.test(trimmedTitle)) {
+      setError("Group name can only contain alphabets ");
+      return;
+    }
+
+ 
     if (!selectedColor) {
       setError("Please select a color!");
       return;
     }
 
-    // Check duplicate group name
+ 
     const grpNames = groups.map((grp) => grp.groupName.toLowerCase());
     if (grpNames.includes(trimmedTitle.toLowerCase())) {
       setError("This group already exists!");
       return;
     }
 
-    // Dispatch create group
+    
     dispatch(createGroup({ groupName: trimmedTitle, groupColor: selectedColor }));
     setOpenModal(false);
     setGrpTitle("");

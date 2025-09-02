@@ -4,8 +4,6 @@ import { useState } from "react";
 import { CreateGroupPop } from "../createGroupPop/CreateGroupPop";
 import { useSelector, useDispatch } from "react-redux";
 
-
-
 export const Sidebar = () => {
   const [openModal, setOpenModal] = useState(false);
   const dispatch = useDispatch();
@@ -43,14 +41,9 @@ export const Sidebar = () => {
         ))}
       </div>
 
-
-
       <div onClick={() => setOpenModal(true)} className={styles.create_group}>
         +
       </div>
-
-
-
       <CreateGroupPop openModal={openModal} setOpenModal={setOpenModal} />
     </div>
   );
